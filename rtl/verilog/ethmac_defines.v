@@ -317,13 +317,13 @@
 `define ETH_REGISTERED_OUTPUTS
 
 // Settings for TX FIFO
-`define ETH_TX_FIFO_CNT_WIDTH  5
-`define ETH_TX_FIFO_DEPTH      16
+`define ETH_TX_FIFO_CNT_WIDTH  10
+`define ETH_TX_FIFO_DEPTH      512
 `define ETH_TX_FIFO_DATA_WIDTH 32
 
 // Settings for RX FIFO
-`define ETH_RX_FIFO_CNT_WIDTH  5
-`define ETH_RX_FIFO_DEPTH      16
+`define ETH_RX_FIFO_CNT_WIDTH  10
+`define ETH_RX_FIFO_DEPTH      512
 `define ETH_RX_FIFO_DATA_WIDTH 32
 
 // Burst length
