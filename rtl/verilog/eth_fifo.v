@@ -93,7 +93,6 @@ reg     [CNT_WIDTH-1:0]   cnt;
 reg     [CNT_WIDTH-2:0]   read_pointer;
 reg     [CNT_WIDTH-2:0]   write_pointer;
 
-
 always @ (posedge clk or posedge reset)
 begin
   if(reset)
@@ -164,15 +163,15 @@ assign almost_full  = &cnt[CNT_WIDTH-2:0];
 `else   // !ETH_ALTERA_ALTSYNCRAM
   always @ (posedge clk)
   begin
-   if(write & ~full)
-      fifo[write_pointer & {CNT_WIDTH-2{~clear}}] <= data_in;
+     if(write & ~full)
+       fifo[write_pointer & {(CNT_WIDTH-1){~clear}}] <= data_in;
   end
   
 
   always @ (posedge clk)
-  begin
-      data_out <= fifo[read_pointer & {CNT_WIDTH-2{~clear}}];
-  end
+    begin
+       data_out <= fifo[read_pointer & {(CNT_WIDTH-1){~clear}}];
+    end
 `endif  // !ETH_ALTERA_ALTSYNCRAM
 `endif  // !ETH_FIFO_XILINX
 
